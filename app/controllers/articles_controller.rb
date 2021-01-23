@@ -1,5 +1,10 @@
 class ArticlesController < ApplicationController
   before_action :find_article, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @articles = Article.all
+  end
+
   def new
     @article = Article.new
     # declarando con @ se puede aceder desde la vista
