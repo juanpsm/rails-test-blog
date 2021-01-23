@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   #metodo 'ruta', to 'controlador#accion'
   get 'bienvenida', to: "home#index"
 
+  root to: "home#index"
+
   get 'articles/new', to: "articles#new"
   post 'articles', to: "articles#create"
   get 'articles/:id', to: 'articles#show'
