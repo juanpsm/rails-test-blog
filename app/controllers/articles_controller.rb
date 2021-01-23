@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.create(title: params[:article][:title]) #recibir datos del formulario
+    @article = Article.create(title: params[:article][:title], content: params[:article][:content]) #recibir datos del formulario
     render json: @article #mostrar version json del objeto que se creo en la bd
   end
 end
