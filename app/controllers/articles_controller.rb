@@ -6,8 +6,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.create(title: params[:article][:title], content: params[:article][:content]) #recibir datos del formulario
-    render json: @article #mostrar version json del objeto que se creo en la bd
+    @article = Article.create(title: params[:article][:title], content: params[:article][:content]) # recibir datos del formulario
+    redirect_to @article # mostrar 
   end
 
   def show
@@ -21,6 +21,6 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     @article.update(title: params[:article][:title], content: params[:article][:content])
-    reditect_to @article
+    redirect_to @article
   end
 end
