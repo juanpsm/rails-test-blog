@@ -1,15 +1,2 @@
-<%= form_with(model: @article, local: true) do |form| %> 
-<!-- local true para que no mande por ajax -->
-  <h3>Edit Article <%:title%></h3>
-  <div>
-    <%=form.label :title %>
-    <%=form.text_field :title %>
-  </div>
-  <div>
-    <%=form.label :content %>
-    <%=form.rich_text_area :content %>
-  </div>
-  <div>
-    <%=form.submit %>
-  </div>
-<%end%>
+<h3>Edit Article <%:title%></h3>
+<%= render "articles/form" %>
