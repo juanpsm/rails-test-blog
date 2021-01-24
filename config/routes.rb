@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   #metodo 'ruta', to 'controlador#accion'
@@ -14,4 +13,6 @@ Rails.application.routes.draw do
   get 'articles/:id/edit', to: 'articles#edit'
   patch 'articles/:id', to: 'articles#update', as: :article
   delete 'articles/:id', to: 'articles#destroy'
+
+  devise_for :users
 end
