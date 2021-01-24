@@ -4,5 +4,7 @@
 </div>
 
 <div>
-  <%=link_to "Eliminar", @article, method: :delete %>
+  <%=link_to "Edit", article_path, method: "patch" %>
+  <%=link_to "Delete", @article, method: "delete" %>
+  <%= link_to "Back", :back %>
 </div>
