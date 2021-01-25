@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %w[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /categories
   # GET /categories.json
