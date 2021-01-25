@@ -13,7 +13,12 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.create(title: params[:article][:title], content: params[:article][:content]) # recibir datos del formulario
+    # @article = Article.create(title: params[:article][:title], # recibir datos del formulario
+    #                           content: params[:article][:content],
+    #                           user: current_user) # el create debe estar protegido por auth
+    # otra forma, accediendo desde la coleccion de articulos del usuario
+    @article = current_user.articles.create(title: params[:article][:title],
+                                            content: params[:article][:content])
     redirect_to @article # mostrar 
   end
 
