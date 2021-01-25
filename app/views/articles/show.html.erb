@@ -1,10 +1,14 @@
-<h1><%=@article.title %></h1>
-<div>
-  <%=@article.content %>
-</div>
+<div class="small-container center-block">
+  <h1 class="text-uppercase"><%=@article.title %></h1>
+  <h3 class="small text-secondary"> by <strong><%=@article.user.email %></strong>,
+  <%= @article.created_at %></h3>
+  <div class="padding">
+    <%=@article.content %>
+  </div>
 
-<div>
-  <%=link_to "Edit", article_path, method: "patch" %>
-  <%=link_to "Delete", @article, method: "delete" %>
-  <%= link_to "Back", :back %>
+  <div class="margin-top">
+    <%=link_to "Edit", article_path, method: "patch" %>
+    <%=link_to "Delete", @article, method: "delete" %>
+    <%=link_to "Back", :back %>
+  </div>
 </div>
