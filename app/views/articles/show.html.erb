@@ -7,7 +7,7 @@
   </div>
 
   <div class="margin-top">
-    <%=link_to "Edit", article_path, method: "patch" %>
+    <%=link_to "Edit", controller: "articles", action: "edit", id: @article %>
     <%=link_to "Delete", @article, method: "delete" %>
     <%=link_to "Back", :back %>
   </div>
