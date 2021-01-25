@@ -1,0 +1,12 @@
+<div class="small-container center-block">
+  <h1 class="font-weight-bold text-uppercase margin-top">Edit Profile</h1>
+  <%= form_with(model: current_user, local: true) do |form| %>
+    <div class="field">
+      <%= form.label :avatar %>
+      <%= form.file_field :avatar %>
+    </div>
+    <div class="field">
+      <%= form.submit %>
+    </div>
+  <%end%>
+</div>

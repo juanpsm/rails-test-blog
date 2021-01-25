@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get 'user/:user_id', to: "articles#from_author", on: :collection
   end
   
-
   devise_for :users
+  get 'profile', to: "users#edit"
+  resources :users, only:[:update]
 end
