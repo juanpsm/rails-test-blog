@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
     @article = Article.new
     # declarando con @ se puede aceder desde la vista
     @article.title = 'Demo'
+    @categories = Category.all
   end
 
   def create
@@ -21,6 +22,7 @@ class ArticlesController < ApplicationController
     #                                         content: params[:article][:content])
     # refactor para especificar lso params aparte
     @article = current_user.articles.create(article_params)
+    @article.save_categories
     redirect_to @article # mostrar 
   end
 
@@ -28,10 +30,12 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
   end
 
   def update
     @article.update(article_params)
+    @article.save_categories
     redirect_to @article
   end
 
@@ -49,6 +53,6 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content, category_elements: [])
   end
 end

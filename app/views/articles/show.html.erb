@@ -1,11 +1,23 @@
 <div class="small-container center-block">
   <h1 class="text-uppercase"><%=@article.title %></h1>
-  <h3 class="small text-secondary"> by <strong><%=@article.user.email %></strong>,
-  <%= @article.created_at %></h3>
+  <h3 class="small text-secondary"> 
+    by <strong><%=@article.user.email %></strong>,
+    <%= @article.created_at %>
+  </h3>
+  
   <div class="padding">
     <%=@article.content %>
   </div>
 
+  <div class="margin-top">
+    <p class="label">Tags</p>
+    <% @article.categories.each do |category| %>
+      <span class="badge badge-pill padding"
+            style="background-color:<%= category.color %>">
+        <%= link_to category.title, category, class:"text-white" %>
+      </span>
+    <%end%>
+  </div>
   <div class="margin-top">
     <%=link_to "Edit", controller: "articles", action: "edit", id: @article %>
     <%=link_to "Delete", @article, method: "delete" %>
