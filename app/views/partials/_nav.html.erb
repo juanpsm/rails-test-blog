@@ -5,11 +5,11 @@
   <li class="nav-item">
     <%=link_to "Articles", articles_path, class:"nav-link" %>
   </li>
-  <li class="nav-item">
-    <%=link_to "New", new_articles_path, class:"nav-link" %>
-  </li>
 
   <%if user_signed_in?%>
+    <li class="nav-item">
+      <%=link_to "New", new_article_path, class:"nav-link" %>
+    </li>
     <li class="nav-item">
       <span class="nav-link"> welcome, <%= current_user.email %>! </span>
     </li>
